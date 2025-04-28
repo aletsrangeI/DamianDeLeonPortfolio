@@ -25,8 +25,16 @@ html {
 
 .header {
   grid-area: header;
-  background-color: white;
-  z-index: 10;
+  position: sticky;
+  top: 0; /* se queda en la parte superior del viewport */
+  z-index: 10; /* por encima del resto */
+  background: white;
+}
+
+@media (max-width: 480px) {
+  .header {
+    position: static; /* vuelve al comportamiento normal de flujo */
+  }
 }
 .main {
   grid-area: main;

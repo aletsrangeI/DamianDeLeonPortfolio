@@ -15,9 +15,9 @@ export const Header = () => {
           <div className="menu">
             <ul>
               <li>
-                <a href="#">
+                <Link to="/">
                   <p>Mi trabajo</p>
-                </a>
+                </Link>
               </li>
               <li>
                 <Link to="/shop">
