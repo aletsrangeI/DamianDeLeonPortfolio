@@ -2,10 +2,10 @@ export const Footer = () => {
   return (
     <div className="site-footer">
       <div className="contact-info">
-        <a href="mailto:tuemail@example.com">tuemail@example.com</a>
-        <a href="tel:+521234567890">+52 123 456 7890</a>
+        <a href="mailto:contacto@orionsys.net">contacto@orionsys.net</a>
+        <a href="tel:+521234567890">+52 55 3554 8441</a>
         <a
-          href="https://www.instagram.com/tuusuario"
+          href="https://www.instagram.com/dimitri_led/"
           target="_blank"
           rel="noopener noreferrer"
         >

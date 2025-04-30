@@ -5,9 +5,7 @@ export const MainPhoto = () => {
     <div className="main-photo">
       <div className="image-container">
         <img src={photomain} alt="Descripción" />
-        <div className="overlay-text">
-          <p>Hola soy Damian y soy putito</p>
-        </div>
+        <div className="overlay-text"></div>
       </div>
     </div>
   );
