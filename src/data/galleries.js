@@ -147,5 +147,26 @@ export const galleries = [
       { filename: "21.jpg", className: "" },
       { filename: "22.jpg", className: "" },
     ],
-  }
+  },
+  {
+    id: "centro-historico",
+    title: "Retrato del centro histórico",
+    path: "/images/centro-historico/",
+    images: [
+      { filename: "01.jpg", className: "" },
+      { filename: "02.jpg", className: "" },
+      { filename: "03.jpg", className: "" },
+      { filename: "04.jpg", className: "" },
+      { filename: "05.jpg", className: "" },
+      { filename: "06.jpg", className: "" },
+      { filename: "07.jpg", className: "" },
+      { filename: "08.jpg", className: "" },
+      { filename: "09.jpg", className: "" },
+      { filename: "10.jpg", className: "" },
+      { filename: "11.jpg", className: "" },
+      { filename: "12.jpg", className: "" },
+      { filename: "13.jpg", className: "" },
+      { filename: "14.jpg", className: "" },
+    ],
+  },
 ];
