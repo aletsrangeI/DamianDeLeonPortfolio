@@ -284,7 +284,12 @@ html {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-item img.loaded {
+  opacity: 1;
 }
 
 .grid-item img:hover {

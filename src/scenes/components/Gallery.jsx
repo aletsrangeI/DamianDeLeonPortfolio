@@ -6,6 +6,8 @@ import { useState } from "react";
 export const Gallery = () => {
   const { id } = useParams();
 
+  console.log(id);
+
   const gallery = galleries.find((g) => g.id === id);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -47,12 +49,14 @@ export const Gallery = () => {
           return (
             <div
               className={containerClass}
-              key={index}
+              key={`${gallery.id}-${filename}`}
               onClick={() => openLightbox(index)}
             >
               <img
                 src={`${gallery.path}${filename}`}
                 alt={`${gallery.title} ${index + 1}`}
+                onLoad={(e) => e.currentTarget.classList.add("loaded")}
+                loading="lazy"
               />
             </div>
           );

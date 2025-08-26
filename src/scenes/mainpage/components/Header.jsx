@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import instagram from "/instagram.svg";
 import { Link } from "react-router";
+import { galleries } from "../../../data/galleries"; // ajusta ruta si aplica
 
 export const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -12,6 +13,13 @@ export const Header = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Normaliza títulos con saltos de línea
+  const items = galleries.map((g) => ({
+    to: `/gallery/${g.id}`,
+    label: (g.title || g.id).replace(/\n/g, " ").trim(),
+    id: g.id,
+  }));
 
   return (
     <div className="header">
@@ -36,48 +44,29 @@ export const Header = () => {
                   DP
                 </p>
 
+                {/* Desktop: mantiene hover por CSS con .dropdown-menu */}
                 {!isMobile ? (
                   <ul className="dropdown-menu">
-                    <li>
-                      <Link to="/gallery/shein">SHEIN</Link>
-                    </li>
-                    <li>
-                      <Link to="/gallery/anillo-de-bodas">
-                        Anillo de bodas (foto fija)
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/gallery/mexico-pro-indigena">
-                        México Pro Indígena
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/gallery/este-aire-sabe-mi-nombre">
-                        Este aire sabe mi nombre
-                      </Link>
-                    </li>
+                    {items.map((item) => (
+                      <li key={item.id}>
+                        <Link to={item.to}>{item.label}</Link>
+                      </li>
+                    ))}
                   </ul>
                 ) : (
+                  // Mobile: mismo estilo/clases originales
                   dropdownOpen && (
                     <ul className="dropdown-mobile-menu">
-                      <li>
-                        <Link to="/gallery/shein">SHEIN</Link>
-                      </li>
-                      <li>
-                        <Link to="/gallery/anillo-de-bodas">
-                          Anillo de bodas (foto fija)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/gallery/mexico-pro-indigena">
-                          México Pro Indígena
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/gallery/este-aire-sabe-mi-nombre">
-                          Este aire sabe mi nombre
-                        </Link>
-                      </li>
+                      {items.map((item) => (
+                        <li key={item.id}>
+                          <Link
+                            to={item.to}
+                            onClick={() => setDropdownOpen(false)}
+                          >
+                            {item.label}
+                          </Link>
+                        </li>
+                      ))}
                     </ul>
                   )
                 )}
